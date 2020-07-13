@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading"> Tableau : Somme des valeurs par source de données</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Mot clé : </label>
+                    <input type="text" [(ngModel)] = "keyWord">
+                    <button class="btn btn-primary" (click)="doChearch()">Chercher</button>
+                    
+                </div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Source(city)</th><th>Somme des valeurs</th>
+                    </tr>
+                    <tr *ngFor="let d of data?.content">
+                        
+                        
+                        <td>{{d[0]}}</td>
+                        <td>{{d[1]}}</td>
+                    </tr>
+                </table>
+
+                <div class="container">
+                    <ul class="nav nav-pills">
+                        <li [ngClass] = "{'active': i== currentPage}" *ngFor="let p of pages; let i=index">
+                            <a   class="clickable" (click)="goToPage(i)">{{i}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+    </div>
+</div>

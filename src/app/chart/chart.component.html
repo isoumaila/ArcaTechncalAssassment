@@ -1,0 +1,20 @@
+
+
+<button (click)="doChearch()">Tracer le chart : </button>
+
+<div>
+    <ejs-chart [primaryXAxis]=xAxis [primaryYAxis]=yAxis [title]='chartTitle' [legendSettings]='legend' [tooltip]='toolTips'
+    (load)='load($event)'> 
+        <e-series-collection>
+            <e-series type='Line' [dataSource]='dataToChart' xName='day' yName='sum' name='Somme' [marker]='markerSetting'></e-series>
+        </e-series-collection>
+
+    </ejs-chart>
+
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li [ngClass] = "{'active': i== currentPage}" *ngFor="let p of pages; let i=index">
+                <p>Suivez la numérotation pour naviguer d'une année à une autre : </p><a   class="clickable" (click)="goToNextYear(i)">{{i}}</a></li>
+        </ul>
+    </div>
+</div>

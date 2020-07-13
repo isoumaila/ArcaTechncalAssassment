@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading"> Les données brutes</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Mot clé : </label>
+                    <input type="text" [(ngModel)] = "keyWord">
+                    <button class="btn btn-primary" (click)="doChearch()">Chercher</button>
+                    
+                </div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th><th>Time stemps</th><th>Value</th><th>City</th>
+                    </tr>
+                    <tr *ngFor="let d of data?.content">
+                        <td>{{d.id}}</td>
+                        <td>{{d.timestamp}}</td>
+                        <td>{{d.value}}</td>
+                        <td>{{d.city}}</td>
+                    </tr>
+                </table>
+
+                <div class="container">
+                    <ul class="nav nav-pills">
+                        <li [ngClass] = "{'active': i== currentPage}" *ngFor="let p of pages; let i=index">
+                            <a   class="clickable" (click)="goToPage(i)">{{i}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+    </div>
+</div>
